@@ -182,4 +182,56 @@ def post_to_x(text: str) -> bool:
         return True
     except Exception as e:
         print(f"Xポスト失敗: {e}")
-        return F
+        return False
+
+
+def compose_tweet(article: dict) -> str:
+    title = article["title"]
+    url = article["url"]
+    hashtags = "\n#エスポラーダ北海道 #Fリーグ"
+    link = f"\n🔗 {url}"
+    header = f"📢 {title}"
+
+    # 280文字制限チェック（URLは23文字換算）
+    max_len = 280 - 23 - len(hashtags) - 5
+    if len(header) > max_len:
+        header = f"📢 {title[: max_len - 4]}…"
+
+    return f"{header}{link}{hashtags}"
+
+
+def main():
+    os.makedirs("docs", exist_ok=True)
+
+    articles = fetch_news_list()
+    if not articles:
+        print("記事が取得できませんでした。")
+        return
+
+    # RSS生成
+    xml_content = generate_rss(articles)
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write(xml_content)
+    print(f"RSSフィード生成完了: {OUTPUT_FILE} ({len(articles)}記事)")
+
+    # X投稿（新着のみ）
+    posted = load_posted()
+    new_articles = [a for a in articles if a["url"] not in posted]
+
+    if not new_articles:
+        print("新着記事なし。投稿スキップ。")
+        return
+
+MAX_POSTS_PER_RUN = 3  # 1回の実行で最大3件まで投稿
+    print(f"新着記事: {len(new_articles)}件（最大{MAX_POSTS_PER_RUN}件投稿）")
+
+    for article in reversed(new_articles[-MAX_POSTS_PER_RUN:]):  # 古い順に最新N件のみ
+        tweet = compose_tweet(article)
+        print(f"投稿中: {article['title']}")
+        post_to_x(tweet)
+        posted.add(article["url"])
+        save_posted(posted)
+
+
+if __name__ == "__main__":
+    main()
