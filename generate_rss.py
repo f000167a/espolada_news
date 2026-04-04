@@ -222,10 +222,9 @@ def main():
         print("新着記事なし。投稿スキップ。")
         return
 
-    MAX_POSTS_PER_RUN = 3  # 1回の実行で最大3件まで投稿
-    print(f"新着記事: {len(new_articles)}件（最大{MAX_POSTS_PER_RUN}件投稿）")
+    print(f"新着記事: {len(new_articles)}件")
 
-    for article in reversed(new_articles[-MAX_POSTS_PER_RUN:]):  # 古い順に最新N件のみ
+    for article in reversed(new_articles):
         tweet = compose_tweet(article)
         print(f"投稿中: {article['title']}")
         post_to_x(tweet)
