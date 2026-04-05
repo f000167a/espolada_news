@@ -2,14 +2,14 @@ name: News Search
 
 on:
   schedule:
-    # 8:20 JST
-    - cron: '20 23 * * *'
+    # 8:00 JST
+    - cron: '00 23 * * *'
     # 12:00 JST
     - cron: '0 3 * * *'
     # 17:00 JST
     - cron: '0 8 * * *'
-    # 19:40 JST
-    - cron: '40 10 * * *'
+    # 20:00 JST
+    - cron: '0 11 * * *'
   workflow_dispatch:
 
 permissions:
