@@ -23,7 +23,7 @@ USER_AGENT = "EspoladaRSSBot/1.0"
 OUTPUT_FILE = "docs/feed.xml"
 POSTED_FILE = "posted.json"
 JST = timezone(timedelta(hours=9))
-BUFFER_API_URL = "https://graph.buffer.com/graphql"
+BUFFER_API_URL = "https://api.buffer.com"
 
 
 def load_posted() -> set:
