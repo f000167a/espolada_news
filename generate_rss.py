@@ -169,17 +169,18 @@ def buffer_graphql(api_key: str, query: str, variables: dict = None) -> dict:
     return resp.json()
 
 
-def get_buffer_channel_id(api_key: str) -> str:
+def get_buffer_channel_id(api_key: str, org_id: str) -> str:
     query = """
-    query {
-        channels {
+    query GetChannels($input: ChannelsInput!) {
+        channels(input: $input) {
             id
             name
             service
         }
     }
     """
-    result = buffer_graphql(api_key, query)
+    variables = {"input": {"organizationId": org_id}}
+    result = buffer_graphql(api_key, query, variables)
     channels = result.get("data", {}).get("channels", [])
 
     for ch in channels:
@@ -192,23 +193,28 @@ def get_buffer_channel_id(api_key: str) -> str:
     return ""
 
 
-def post_to_buffer(api_key: str, org_id: str, channel_id: str, text: str) -> bool:
+def post_to_buffer(api_key: str, channel_id: str, text: str) -> bool:
     query = """
-    mutation CreatePost($input: PostInput!) {
+    mutation CreatePost($input: CreatePostInput!) {
         createPost(input: $input) {
-            id
-            status
+            ... on PostActionSuccess {
+                post {
+                    id
+                    text
+                }
+            }
+            ... on MutationError {
+                message
+            }
         }
     }
     """
     variables = {
         "input": {
-            "organizationId": org_id,
-            "channelIds": [channel_id],
-            "content": {
-                "text": text,
-            },
-            "publishNow": True,
+            "text": text,
+            "channelId": channel_id,
+            "schedulingType": "automatic",
+            "mode": "shareNow",
         }
     }
 
@@ -217,8 +223,12 @@ def post_to_buffer(api_key: str, org_id: str, channel_id: str, text: str) -> boo
         if "errors" in result:
             print(f"Buffer投稿エラー: {result['errors']}")
             return False
-        post_data = result.get("data", {}).get("createPost", {})
-        print(f"Buffer投稿成功: id={post_data.get('id')} status={post_data.get('status')}")
+        create_post = result.get("data", {}).get("createPost", {})
+        if "message" in create_post:
+            print(f"Buffer投稿エラー: {create_post['message']}")
+            return False
+        post = create_post.get("post", {})
+        print(f"Buffer投稿成功: id={post.get('id')}")
         return True
     except Exception as e:
         print(f"Buffer投稿失敗: {e}")
@@ -294,7 +304,7 @@ def main():
 
     if buffer_api_key and buffer_org_id:
         print("Bufferチャンネル検索中...")
-        buffer_channel_id = get_buffer_channel_id(buffer_api_key)
+        buffer_channel_id = get_buffer_channel_id(buffer_api_key, buffer_org_id)
         if buffer_channel_id:
             print(f"Bufferチャンネル: {buffer_channel_id}")
         else:
@@ -308,7 +318,7 @@ def main():
 
         # Buffer経由で投稿
         if buffer_api_key and buffer_org_id and buffer_channel_id:
-            posted_ok = post_to_buffer(buffer_api_key, buffer_org_id, buffer_channel_id, tweet)
+            posted_ok = post_to_buffer(buffer_api_key, buffer_channel_id, tweet)
 
         # X API直接投稿（フォールバック）
         if not posted_ok:
