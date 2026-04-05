@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 エスポラーダ北海道 試合リマインドBot
-毎朝実行し、当日・翌日の試合があればBuffer経由でXに投稿する。
+毎朝実行し、次の試合情報をBuffer経由でXに投稿する。
 """
 
 import json
@@ -14,6 +14,7 @@ import requests
 JST = timezone(timedelta(hours=9))
 BUFFER_API_URL = "https://api.buffer.com"
 SCHEDULE_FILE = Path(__file__).parent / "schedule.json"
+MAX_DAYS_AHEAD = 21
 
 
 def load_schedule() -> list[dict]:
@@ -95,14 +96,23 @@ def post_to_buffer(api_key: str, channel_id: str, text: str) -> bool:
         return False
 
 
-def compose_reminder(match: dict, is_today: bool) -> str:
+def find_next_match(schedule: list[dict], today: str) -> dict | None:
+    for match in schedule:
+        if match["date"] is None:
+            continue
+        if match["date"] >= today:
+            return match
+    return None
+
+
+def compose_reminder(match: dict, days_until: int) -> str:
     opponent = match["opponent"]
     time = match["time"]
     venue = match["venue"]
     round_num = match["round"]
     home_away = "🏠ホーム" if match["home"] else "✈️アウェイ"
 
-    if is_today:
+    if days_until == 0:
         msg = (
             f"⚽ 【試合当日】Fリーグ第{round_num}節\n"
             f"本日 {time} キックオフ！\n"
@@ -111,10 +121,18 @@ def compose_reminder(match: dict, is_today: bool) -> str:
             f"応援よろしくお願いします！\n"
             f"#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
         )
-    else:
+    elif days_until == 1:
         msg = (
             f"📣 【明日は試合日】Fリーグ第{round_num}節\n"
             f"明日 {time} キックオフ\n"
+            f"vs {opponent}\n"
+            f"📍 {venue}（{home_away}）\n"
+            f"#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
+        )
+    else:
+        msg = (
+            f"📅 次の試合まであと{days_until}日！\n"
+            f"Fリーグ第{round_num}節\n"
             f"vs {opponent}\n"
             f"📍 {venue}（{home_away}）\n"
             f"#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
@@ -132,42 +150,35 @@ def main():
 
     now = datetime.now(JST)
     today = now.strftime("%Y-%m-%d")
-    tomorrow = (now + timedelta(days=1)).strftime("%Y-%m-%d")
-    print(f"今日: {today} / 明日: {tomorrow}")
+    print(f"今日: {today}")
 
     schedule = load_schedule()
+    match = find_next_match(schedule, today)
 
-    channel_id = ""
-    posted = False
+    if match is None:
+        print("今シーズンの残り試合はありません。")
+        return
 
-    for match in schedule:
-        if match["date"] is None:
-            continue
+    match_date = datetime.strptime(match["date"], "%Y-%m-%d").replace(tzinfo=JST)
+    days_until = (match_date - now.replace(hour=0, minute=0, second=0, microsecond=0)).days
 
-        is_today = match["date"] == today
-        is_tomorrow = match["date"] == tomorrow
+    print(f"次の試合: 第{match['round']}節 vs {match['opponent']} ({match['date']}) あと{days_until}日")
 
-        if not is_today and not is_tomorrow:
-            continue
+    if days_until > MAX_DAYS_AHEAD:
+        print(f"次の試合まで{days_until}日（{MAX_DAYS_AHEAD}日超）。投稿スキップ。")
+        return
 
-        if not channel_id:
-            print("Bufferチャンネル検索中...")
-            channel_id = get_buffer_channel_id(buffer_api_key, buffer_org_id)
-            if not channel_id:
-                print("Bufferチャンネルが見つかりません。")
-                return
-            print(f"チャンネルID: {channel_id}")
+    reminder = compose_reminder(match, days_until)
+    print(f"--- ポスト内容 ---\n{reminder}\n---")
 
-        reminder = compose_reminder(match, is_today)
-        label = "当日" if is_today else "前日"
-        print(f"リマインド投稿（{label}）: vs {match['opponent']}")
-        print(f"--- ポスト内容 ---\n{reminder}\n---")
+    print("Bufferチャンネル検索中...")
+    channel_id = get_buffer_channel_id(buffer_api_key, buffer_org_id)
+    if not channel_id:
+        print("Bufferチャンネルが見つかりません。")
+        return
+    print(f"チャンネルID: {channel_id}")
 
-        post_to_buffer(buffer_api_key, channel_id, reminder)
-        posted = True
-
-    if not posted:
-        print("今日・明日に試合はありません。")
+    post_to_buffer(buffer_api_key, channel_id, reminder)
 
 
 if __name__ == "__main__":
