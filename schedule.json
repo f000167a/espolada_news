@@ -1,5 +1,4 @@
 [
-  {"round": 0, "date": "2026-04-05", "time": "13:00", "venue": "テスト会場", "opponent": "テスト対戦相手", "home": true},
   {"round": 1, "date": "2026-05-31", "time": "13:00", "venue": "苫小牧市総合体育館", "opponent": "しながわシティ", "home": true},
   {"round": 2, "date": "2026-06-07", "time": "13:00", "venue": "北ガスアリーナ札幌46", "opponent": "名古屋オーシャンズ", "home": true},
   {"round": 3, "date": "2026-06-13", "time": "14:00", "venue": "バルドラール浦安アリーナ", "opponent": "バルドラール浦安", "home": false},
