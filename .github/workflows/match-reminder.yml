@@ -4,7 +4,7 @@ on:
   schedule:
     # 8:30 JST
     - cron: '30 23 * * *'
-    # 20:00 JST
+    # 20:30 JST
     - cron: '30 11 * * *'
   workflow_dispatch:
 
