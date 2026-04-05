@@ -43,7 +43,8 @@ def save_posted_news(posted: set):
 
 
 def fetch_google_news(keyword: str) -> list[dict]:
-    url = f"https://news.google.com/rss/search?q={quote(keyword)}&hl=ja&gl=JP&ceid=JP:ja"
+    # when:7d で直近7日間に限定
+    url = f"https://news.google.com/rss/search?q={quote(keyword)}+when:7d&hl=ja&gl=JP&ceid=JP:ja"
     try:
         resp = requests.get(url, timeout=15)
         resp.raise_for_status()
@@ -54,6 +55,9 @@ def fetch_google_news(keyword: str) -> list[dict]:
     root = ET.fromstring(resp.text)
     articles = []
 
+    now = datetime.now(timezone.utc)
+    max_age = timedelta(days=3)  # 3日以内の記事のみ
+
     for item in root.findall(".//item"):
         title = item.findtext("title", "")
         link = item.findtext("link", "")
@@ -63,7 +67,17 @@ def fetch_google_news(keyword: str) -> list[dict]:
         if not title or not link:
             continue
 
-        # espolada.com自体のニュースは除外（公式Bot側で処理済み）
+        # 日付チェック（3日以内のみ）
+        if pub_date:
+            try:
+                from email.utils import parsedate_to_datetime
+                article_date = parsedate_to_datetime(pub_date)
+                if now - article_date > max_age:
+                    continue
+            except Exception:
+                pass
+
+        # espolada.com自体のニュースは除外
         skip = False
         for domain in EXCLUDE_DOMAINS:
             if domain in link:
