@@ -2,7 +2,10 @@ name: Match Reminder
 
 on:
   schedule:
+    # 8:30 JST
     - cron: '30 23 * * *'
+    # 20:00 JST
+    - cron: '30 11 * * *'
   workflow_dispatch:
 
 jobs:
