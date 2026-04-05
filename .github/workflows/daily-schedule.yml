@@ -2,8 +2,10 @@ name: Daily Schedule Post
 
 on:
   schedule:
-    # 毎日23:35 UTC = 8:35 JST
+    # 8:35 JST
     - cron: '35 23 * * *'
+    # 20:00 JST
+    - cron: '35 11 * * *'
   workflow_dispatch:
 
 jobs:
