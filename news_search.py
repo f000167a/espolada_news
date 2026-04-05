@@ -85,6 +85,13 @@ def fetch_google_news(keyword: str) -> list[dict]:
                 break
         if skip:
             continue
+            
+        # タイトルに関連キーワードが含まれているか確認
+        title_lower = title.lower()
+        if not any(kw in title_lower for kw in ["エスポラーダ", "イルネーヴェ", "espolada", "fリーグ"]):
+            print(f"  スキップ（無関係）: {title}")
+            continue
+
 
         articles.append({
             "title": title,
