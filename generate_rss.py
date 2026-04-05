@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-エスポラーダ北海道 ニュースRSS生成 & X投稿スクリプト
+エスポラーダ北海道 ニュースRSS生成 & Buffer経由X投稿スクリプト
 """
 
 import json
@@ -23,6 +23,7 @@ USER_AGENT = "EspoladaRSSBot/1.0"
 OUTPUT_FILE = "docs/feed.xml"
 POSTED_FILE = "posted.json"
 JST = timezone(timedelta(hours=9))
+BUFFER_API_URL = "https://graph.buffer.com/graphql"
 
 
 def load_posted() -> set:
@@ -69,8 +70,6 @@ def fetch_news_list() -> list[dict]:
 
         seen_urls.add(clean_url)
 
-        # 日付とカテゴリをタイトルから分離
-        # パターン: "カテゴリYYYY.MM.DD本文タイトル"
         clean_title = title
         category = ""
         date_str = ""
@@ -87,7 +86,6 @@ def fetch_news_list() -> list[dict]:
                 date_str = f"{parts[0]}-{int(parts[1]):02d}-{int(parts[2]):02d}"
             clean_title = m.group(3).strip()
 
-        # 親要素からも日付を探す（フォールバック）
         if not date_str:
             parent = link.find_parent(["li", "div", "article", "dl", "dd"])
             if parent:
@@ -157,6 +155,76 @@ def generate_rss(articles: list[dict]) -> str:
     return pretty.decode("utf-8")
 
 
+def buffer_graphql(api_key: str, query: str, variables: dict = None) -> dict:
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+    payload = {"query": query}
+    if variables:
+        payload["variables"] = variables
+
+    resp = requests.post(BUFFER_API_URL, headers=headers, json=payload, timeout=30)
+    resp.raise_for_status()
+    return resp.json()
+
+
+def get_buffer_channel_id(api_key: str) -> str:
+    query = """
+    query {
+        channels {
+            id
+            name
+            service
+        }
+    }
+    """
+    result = buffer_graphql(api_key, query)
+    channels = result.get("data", {}).get("channels", [])
+
+    for ch in channels:
+        print(f"  Buffer チャンネル: {ch['name']} ({ch['service']}) id={ch['id']}")
+        if ch.get("service") in ("twitter", "x"):
+            return ch["id"]
+
+    if channels:
+        return channels[0]["id"]
+    return ""
+
+
+def post_to_buffer(api_key: str, org_id: str, channel_id: str, text: str) -> bool:
+    query = """
+    mutation CreatePost($input: PostInput!) {
+        createPost(input: $input) {
+            id
+            status
+        }
+    }
+    """
+    variables = {
+        "input": {
+            "organizationId": org_id,
+            "channelIds": [channel_id],
+            "content": {
+                "text": text,
+            },
+            "publishNow": True,
+        }
+    }
+
+    try:
+        result = buffer_graphql(api_key, query, variables)
+        if "errors" in result:
+            print(f"Buffer投稿エラー: {result['errors']}")
+            return False
+        post_data = result.get("data", {}).get("createPost", {})
+        print(f"Buffer投稿成功: id={post_data.get('id')} status={post_data.get('status')}")
+        return True
+    except Exception as e:
+        print(f"Buffer投稿失敗: {e}")
+        return False
+
+
 def post_to_x(text: str) -> bool:
     api_key = os.getenv("X_API_KEY")
     api_secret = os.getenv("X_API_SECRET")
@@ -164,12 +232,10 @@ def post_to_x(text: str) -> bool:
     access_secret = os.getenv("X_ACCESS_SECRET")
 
     if not all([api_key, api_secret, access_token, access_secret]):
-        print("X APIキー未設定。投稿スキップ。")
         return False
 
     try:
         import tweepy
-
         client = tweepy.Client(
             consumer_key=api_key,
             consumer_secret=api_secret,
@@ -188,11 +254,10 @@ def post_to_x(text: str) -> bool:
 def compose_tweet(article: dict) -> str:
     title = article["title"]
     url = article["url"]
-    hashtags = "\n#エスポラーダ北海道 #Fリーグ"
+    hashtags = "\n#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
     link = f"\n🔗 {url}"
     header = f"📢 {title}"
 
-    # 280文字制限チェック（URLは23文字換算）
     max_len = 280 - 23 - len(hashtags) - 5
     if len(header) > max_len:
         header = f"📢 {title[: max_len - 4]}…"
@@ -208,13 +273,11 @@ def main():
         print("記事が取得できませんでした。")
         return
 
-    # RSS生成
     xml_content = generate_rss(articles)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(xml_content)
     print(f"RSSフィード生成完了: {OUTPUT_FILE} ({len(articles)}記事)")
 
-    # X投稿（新着のみ）
     posted = load_posted()
     new_articles = [a for a in articles if a["url"] not in posted]
 
@@ -224,10 +287,36 @@ def main():
 
     print(f"新着記事: {len(new_articles)}件")
 
+    # Buffer API設定
+    buffer_api_key = os.getenv("BUFFER_API_KEY")
+    buffer_org_id = os.getenv("BUFFER_ORG_ID")
+    buffer_channel_id = ""
+
+    if buffer_api_key and buffer_org_id:
+        print("Bufferチャンネル検索中...")
+        buffer_channel_id = get_buffer_channel_id(buffer_api_key)
+        if buffer_channel_id:
+            print(f"Bufferチャンネル: {buffer_channel_id}")
+        else:
+            print("Bufferチャンネルが見つかりません。")
+
     for article in reversed(new_articles):
         tweet = compose_tweet(article)
         print(f"投稿中: {article['title']}")
-        post_to_x(tweet)
+
+        posted_ok = False
+
+        # Buffer経由で投稿
+        if buffer_api_key and buffer_org_id and buffer_channel_id:
+            posted_ok = post_to_buffer(buffer_api_key, buffer_org_id, buffer_channel_id, tweet)
+
+        # X API直接投稿（フォールバック）
+        if not posted_ok:
+            posted_ok = post_to_x(tweet)
+
+        if not posted_ok:
+            print("投稿手段なし。スキップ。")
+
         posted.add(article["url"])
         save_posted(posted)
 
