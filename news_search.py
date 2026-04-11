@@ -220,13 +220,23 @@ def main():
         print(f"  → {len(articles)}件取得")
         all_articles.extend(articles)
 
-    # URL重複排除
+# URL重複排除 + タイトル類似排除
     seen = set()
+    seen_titles = []
     unique_articles = []
     for a in all_articles:
-        if a["link"] not in seen and a["link"] not in posted:
-            seen.add(a["link"])
-            unique_articles.append(a)
+        if a["link"] in seen or a["link"] in posted:
+            continue
+            
+        # タイトルの先頭20文字が既出と一致したらスキップ（同じニュースの別媒体）
+        title_key = re.sub(r"[\s　]", "", a["title"])[:20]
+        if any(title_key == t for t in seen_titles):
+            print(f"  スキップ（重複ニュース）: {a['title']}")
+            posted.add(a["link"])  # 重複もpostedに追加して再検出防止
+            continue
+        seen.add(a["link"])
+        seen_titles.append(title_key)
+        unique_articles.append(a)
 
     if not unique_articles:
         print("新着ニュースなし。")
