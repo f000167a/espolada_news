@@ -220,7 +220,7 @@ def main():
         print(f"  → {len(articles)}件取得")
         all_articles.extend(articles)
 
-# URL重複排除 + タイトル類似排除
+    # URL重複排除 + タイトル類似排除
     seen = set()
     seen_titles = []
     unique_articles = []
