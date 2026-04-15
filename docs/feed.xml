@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 15 Apr 2026 02:32:09 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2026 05:24:07 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>2026-27シーズン エスポラーダ北海道オフィシャルファンクラブ入会申込開始！</title>
+      <link>https://espolada.com/news/2026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-%e3%82%a8%e3%82%b9%e3%83%9d%e3%83%a9%e3%83%bc%e3%83%80%e5%8c%97%e6%b5%b7%e9%81%93%e3%82%aa%e3%83%95%e3%82%a3%e3%82%b7%e3%83%a3%e3%83%ab%e3%83%95%e3%82%a1/</link>
+      <guid>https://espolada.com/news/2026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-%e3%82%a8%e3%82%b9%e3%83%9d%e3%83%a9%e3%83%bc%e3%83%80%e5%8c%97%e6%b5%b7%e9%81%93%e3%82%aa%e3%83%95%e3%82%a3%e3%82%b7%e3%83%a3%e3%83%ab%e3%83%95%e3%82%a1/</guid>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>2026-27シーズン エスポラーダ北海道オフィシャルファンクラブ入会申込開始！</description>
     </item>
     <item>
       <title>ラジオ出演のお知らせ！</title>
@@ -158,14 +166,6 @@
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0900</pubDate>
       <category>レディース</category>
       <description>【エスポラーダ北海道イルネーヴェ】引退・退団選手のお知らせ</description>
-    </item>
-    <item>
-      <title>JFA第31回全日本フットサル選手権大会（2回戦）試合結果！</title>
-      <link>https://espolada.com/news/jfa%e7%ac%ac31%e5%9b%9e%e5%85%a8%e6%97%a5%e6%9c%ac%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e9%81%b8%e6%89%8b%e6%a8%a9%e5%a4%a7%e4%bc%9a%ef%bc%882%e5%9b%9e%e6%88%a6%ef%bc%89%e8%a9%a6%e5%90%88/</link>
-      <guid>https://espolada.com/news/jfa%e7%ac%ac31%e5%9b%9e%e5%85%a8%e6%97%a5%e6%9c%ac%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e9%81%b8%e6%89%8b%e6%a8%a9%e5%a4%a7%e4%bc%9a%ef%bc%882%e5%9b%9e%e6%88%a6%ef%bc%89%e8%a9%a6%e5%90%88/</guid>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 +0900</pubDate>
-      <category>試合</category>
-      <description>JFA第31回全日本フットサル選手権大会（2回戦）試合結果！</description>
     </item>
   </channel>
 </rss>
