@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Fri, 17 Apr 2026 23:39:10 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2026 02:25:40 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>公開トレーニングマッチのお知らせ！</title>
+      <link>https://espolada.com/news/%e5%85%ac%e9%96%8b%e3%83%88%e3%83%ac%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%e3%83%9e%e3%83%83%e3%83%81%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81/</link>
+      <guid>https://espolada.com/news/%e5%85%ac%e9%96%8b%e3%83%88%e3%83%ac%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%e3%83%9e%e3%83%83%e3%83%81%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81/</guid>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>公開トレーニングマッチのお知らせ！</description>
     </item>
     <item>
       <title>2026年度新体制発表記者会見 インスタライブ実施のお知らせ！</title>
@@ -158,14 +166,6 @@
       <pubDate>Tue, 24 Mar 2026 00:00:00 +0900</pubDate>
       <category>レディース</category>
       <description>【エスポラーダ北海道イルネーヴェ】退団選手のお知らせ</description>
-    </item>
-    <item>
-      <title>【サテライト】PRIORITY LEAGUE 2025 後期 第10節　試合結果！</title>
-      <link>https://espolada.com/news/%e3%80%90%e3%82%b5%e3%83%86%e3%83%a9%e3%82%a4%e3%83%88%e3%80%91priority-league-2025-%e5%be%8c%e6%9c%9f-%e7%ac%ac10%e7%af%80%e3%80%80%e8%a9%a6%e5%90%88%e7%b5%90%e6%9e%9c%ef%bc%81/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e3%82%b5%e3%83%86%e3%83%a9%e3%82%a4%e3%83%88%e3%80%91priority-league-2025-%e5%be%8c%e6%9c%9f-%e7%ac%ac10%e7%af%80%e3%80%80%e8%a9%a6%e5%90%88%e7%b5%90%e6%9e%9c%ef%bc%81/</guid>
-      <pubDate>Sun, 22 Mar 2026 00:00:00 +0900</pubDate>
-      <category>サテライト</category>
-      <description>【サテライト】PRIORITY LEAGUE 2025 後期 第10節　試合結果！</description>
     </item>
   </channel>
 </rss>
