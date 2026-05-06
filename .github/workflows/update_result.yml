@@ -1,0 +1,36 @@
+name: Update Match Result
+
+on:
+  schedule:
+    # 毎日 JST 9:00 / 18:00 / 23:00 に実行（試合翌朝〜翌日）
+    - cron: '0 0 * * *'   # JST 9:00
+    - cron: '0 9 * * *'   # JST 18:00
+    - cron: '0 14 * * *'  # JST 23:00
+  workflow_dispatch:       # 手動実行も可能
+
+jobs:
+  update-result:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Update match result
+        env:
+          CHANTS_PAT: ${{ secrets.CHANTS_PAT }}
+        run: python update_result.py
+
+      - name: Save posted results state
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update posted_results state [skip ci]"
+          file_pattern: posted_results.json
