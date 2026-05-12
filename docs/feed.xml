@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 11 May 2026 23:57:35 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 03:49:26 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>ラジオ出演のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-11/</link>
+      <guid>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-11/</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>ラジオ出演のお知らせ！</description>
     </item>
     <item>
       <title>メットライフ生命Ｆリーグ2026-27 ディビジョン1　一部日程/会場変更のお知らせ</title>
@@ -190,14 +198,6 @@
       <pubDate>Mon, 30 Mar 2026 00:00:00 +0900</pubDate>
       <category>レディース</category>
       <description>【エスポラーダ北海道イルネーヴェ】2026-27シーズン 登録選手及び背番号決定！</description>
-    </item>
-    <item>
-      <title>【エスポラーダ北海道イルネーヴェ】新加入選手のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%80%90%e3%82%a8%e3%82%b9%e3%83%9d%e3%83%a9%e3%83%bc%e3%83%80%e5%8c%97%e6%b5%b7%e9%81%93%e3%82%a4%e3%83%ab%e3%83%8d%e3%83%bc%e3%83%b4%e3%82%a7%e3%80%91%e6%96%b0%e5%8a%a0%e5%85%a5%e9%81%b8%e6%89%8b-2/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e3%82%a8%e3%82%b9%e3%83%9d%e3%83%a9%e3%83%bc%e3%83%80%e5%8c%97%e6%b5%b7%e9%81%93%e3%82%a4%e3%83%ab%e3%83%8d%e3%83%bc%e3%83%b4%e3%82%a7%e3%80%91%e6%96%b0%e5%8a%a0%e5%85%a5%e9%81%b8%e6%89%8b-2/</guid>
-      <pubDate>Mon, 30 Mar 2026 00:00:00 +0900</pubDate>
-      <category>レディース</category>
-      <description>【エスポラーダ北海道イルネーヴェ】新加入選手のお知らせ！</description>
     </item>
   </channel>
 </rss>
