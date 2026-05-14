@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Thu, 14 May 2026 04:06:04 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2026 07:40:59 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>【トップチーム】特別指定登録選手のお知らせ</title>
+      <link>https://espolada.com/news/%e3%80%90%e3%83%88%e3%83%83%e3%83%97%e3%83%81%e3%83%bc%e3%83%a0%e3%80%91%e7%89%b9%e5%88%a5%e6%8c%87%e5%ae%9a%e7%99%bb%e9%8c%b2%e9%81%b8%e6%89%8b%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/</link>
+      <guid>https://espolada.com/news/%e3%80%90%e3%83%88%e3%83%83%e3%83%97%e3%83%81%e3%83%bc%e3%83%a0%e3%80%91%e7%89%b9%e5%88%a5%e6%8c%87%e5%ae%9a%e7%99%bb%e9%8c%b2%e9%81%b8%e6%89%8b%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/</guid>
+      <pubDate>Thu, 14 May 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>【トップチーム】特別指定登録選手のお知らせ</description>
     </item>
     <item>
       <title>メットライフ生命Ｆリーグ2026-27 ディビジョン1　日程/会場決定のお知らせ</title>
@@ -190,14 +198,6 @@
       <pubDate>Tue, 31 Mar 2026 00:00:00 +0900</pubDate>
       <category>レディース</category>
       <description>【エスポラーダ北海道イルネーヴェ】2026-27シーズンレプリカユニフォーム予約販売開始！</description>
-    </item>
-    <item>
-      <title>【エスポラーダ北海道イルネーヴェ】2026-27シーズン ユニフォームデザイン決定！</title>
-      <link>https://espolada.com/news/%e3%80%90%e3%82%a8%e3%82%b9%e3%83%9d%e3%83%a9%e3%83%bc%e3%83%80%e5%8c%97%e6%b5%b7%e9%81%93%e3%82%a4%e3%83%ab%e3%83%8d%e3%83%bc%e3%83%b4%e3%82%a7%e3%80%912026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-2/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e3%82%a8%e3%82%b9%e3%83%9d%e3%83%a9%e3%83%bc%e3%83%80%e5%8c%97%e6%b5%b7%e9%81%93%e3%82%a4%e3%83%ab%e3%83%8d%e3%83%bc%e3%83%b4%e3%82%a7%e3%80%912026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-2/</guid>
-      <pubDate>Tue, 31 Mar 2026 00:00:00 +0900</pubDate>
-      <category>レディース</category>
-      <description>【エスポラーダ北海道イルネーヴェ】2026-27シーズン ユニフォームデザイン決定！</description>
     </item>
   </channel>
 </rss>
