@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 10 Jun 2026 00:13:07 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 05:17:56 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第3節（浦安戦）のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e3%83%87%e3%82%a3%e3%83%93%e3%82%b8%e3%83%a7%e3%83%b31-%e7%ac%ac3%e7%af%80%ef%bc%88/</link>
+      <guid>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e3%83%87%e3%82%a3%e3%83%93%e3%82%b8%e3%83%a7%e3%83%b31-%e7%ac%ac3%e7%af%80%ef%bc%88/</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第3節（浦安戦）のお知らせ！</description>
     </item>
     <item>
       <title>【サテライト】2026年度北海道フットサルリーグ 第10回札幌道央ブロックリーグ 第3節　試合結果！</title>
@@ -198,14 +206,6 @@
       <pubDate>Mon, 11 May 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>公開トレーニングマッチのお知らせ！</description>
-    </item>
-    <item>
-      <title>【イルネーヴェ】シーズンスローガン決定のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%80%90%e3%82%a4%e3%83%ab%e3%83%8d%e3%83%bc%e3%83%b4%e3%82%a7%e3%80%91%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3%e3%82%b9%e3%83%ad%e3%83%bc%e3%82%ac%e3%83%b3%e6%b1%ba%e5%ae%9a%e3%81%ae%e3%81%8a%e7%9f%a5/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e3%82%a4%e3%83%ab%e3%83%8d%e3%83%bc%e3%83%b4%e3%82%a7%e3%80%91%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3%e3%82%b9%e3%83%ad%e3%83%bc%e3%82%ac%e3%83%b3%e6%b1%ba%e5%ae%9a%e3%81%ae%e3%81%8a%e7%9f%a5/</guid>
-      <pubDate>Fri, 01 May 2026 00:00:00 +0900</pubDate>
-      <category>レディース</category>
-      <description>【イルネーヴェ】シーズンスローガン決定のお知らせ！</description>
     </item>
   </channel>
 </rss>
