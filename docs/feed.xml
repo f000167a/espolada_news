@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 15 Jun 2026 00:08:33 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 06:23:09 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>メットライフ生命女子Ｆリーグ2026-27 第2節（立川戦）のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e5%a5%b3%e5%ad%90%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e7%ac%ac2%e7%af%80%ef%bc%88%e7%ab%8b%e5%b7%9d%e6%88%a6%ef%bc%89/</link>
+      <guid>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e5%a5%b3%e5%ad%90%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e7%ac%ac2%e7%af%80%ef%bc%88%e7%ab%8b%e5%b7%9d%e6%88%a6%ef%bc%89/</guid>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0900</pubDate>
+      <category>レディース</category>
+      <description>メットライフ生命女子Ｆリーグ2026-27 第2節（立川戦）のお知らせ！</description>
     </item>
     <item>
       <title>メットライフ生命女子Ｆリーグ2026-27 第1節（神戸戦）　試合結果！</title>
@@ -198,14 +206,6 @@
       <pubDate>Thu, 14 May 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1　日程/会場決定のお知らせ</description>
-    </item>
-    <item>
-      <title>ラジオ出演のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-11/</link>
-      <guid>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-11/</guid>
-      <pubDate>Tue, 12 May 2026 00:00:00 +0900</pubDate>
-      <category>お知らせ</category>
-      <description>ラジオ出演のお知らせ！</description>
     </item>
   </channel>
 </rss>
