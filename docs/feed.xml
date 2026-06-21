@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 21 Jun 2026 06:00:19 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 10:28:43 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>【サテライト】2026年度北海道フットサルリーグ 第10回札幌道央ブロックリーグ 第4節　試合結果！</title>
+      <link>https://espolada.com/news/%e3%80%90%e3%82%b5%e3%83%86%e3%83%a9%e3%82%a4%e3%83%88%e3%80%912026%e5%b9%b4%e5%ba%a6%e5%8c%97%e6%b5%b7%e9%81%93%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e3%83%aa%e3%83%bc%e3%82%b0-%e7%ac%ac10-5/</link>
+      <guid>https://espolada.com/news/%e3%80%90%e3%82%b5%e3%83%86%e3%83%a9%e3%82%a4%e3%83%88%e3%80%912026%e5%b9%b4%e5%ba%a6%e5%8c%97%e6%b5%b7%e9%81%93%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e3%83%aa%e3%83%bc%e3%82%b0-%e7%ac%ac10-5/</guid>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 +0900</pubDate>
+      <category>サテライト</category>
+      <description>【サテライト】2026年度北海道フットサルリーグ 第10回札幌道央ブロックリーグ 第4節　試合結果！</description>
     </item>
     <item>
       <title>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第4節（北九州戦）試合結果！</title>
@@ -198,14 +206,6 @@
       <pubDate>Mon, 01 Jun 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第1節（しながわ戦）試合結果！</description>
-    </item>
-    <item>
-      <title>【HOME GAME：苫小牧市総合体育館】メットライフ生命Ｆリーグ2026-27 ディビジョン1 第1節（しながわ戦）のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e8%8b%ab%e5%b0%8f%e7%89%a7%e5%b8%82%e7%b7%8f%e5%90%88%e4%bd%93%e8%82%b2%e9%a4%a8%e3%80%91%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86-2/</link>
-      <guid>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e8%8b%ab%e5%b0%8f%e7%89%a7%e5%b8%82%e7%b7%8f%e5%90%88%e4%bd%93%e8%82%b2%e9%a4%a8%e3%80%91%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86-2/</guid>
-      <pubDate>Wed, 20 May 2026 00:00:00 +0900</pubDate>
-      <category>お知らせ</category>
-      <description>【HOME GAME：苫小牧市総合体育館】メットライフ生命Ｆリーグ2026-27 ディビジョン1 第1節（しながわ戦）のお知らせ！</description>
     </item>
   </channel>
 </rss>
