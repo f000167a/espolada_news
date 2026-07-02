@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 01 Jul 2026 23:14:53 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 03:33:05 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>ラジオ出演のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-15/</link>
+      <guid>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-15/</guid>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>ラジオ出演のお知らせ！</description>
     </item>
     <item>
       <title>ラジオ出演のお知らせ！</title>
@@ -198,14 +206,6 @@
       <pubDate>Wed, 10 Jun 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第3節（浦安戦）のお知らせ！</description>
-    </item>
-    <item>
-      <title>【サテライト】2026年度北海道フットサルリーグ 第10回札幌道央ブロックリーグ 第3節　試合結果！</title>
-      <link>https://espolada.com/news/%e3%80%90%e3%82%b5%e3%83%86%e3%83%a9%e3%82%a4%e3%83%88%e3%80%912026%e5%b9%b4%e5%ba%a6%e5%8c%97%e6%b5%b7%e9%81%93%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e3%83%aa%e3%83%bc%e3%82%b0-%e7%ac%ac10-4/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e3%82%b5%e3%83%86%e3%83%a9%e3%82%a4%e3%83%88%e3%80%912026%e5%b9%b4%e5%ba%a6%e5%8c%97%e6%b5%b7%e9%81%93%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e3%83%aa%e3%83%bc%e3%82%b0-%e7%ac%ac10-4/</guid>
-      <pubDate>Sun, 07 Jun 2026 00:00:00 +0900</pubDate>
-      <category>サテライト</category>
-      <description>【サテライト】2026年度北海道フットサルリーグ 第10回札幌道央ブロックリーグ 第3節　試合結果！</description>
     </item>
   </channel>
 </rss>
