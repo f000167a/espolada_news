@@ -122,7 +122,7 @@ def compose_reminder(match: dict, days_until: int) -> str:
     if days_until == 0:
         msg = (
             f"⚽ 【試合当日】Fリーグ第{round_num}節\n"
-            f"本日 {time} キックオフ！\n"
+            f"本日 {date_ja} {time} キックオフ！\n"
             f"vs {opponent}\n"
             f"📍 {venue}（{home_away}）\n"
             f"応援よろしくお願いします！\n"
@@ -131,7 +131,7 @@ def compose_reminder(match: dict, days_until: int) -> str:
     elif days_until == 1:
         msg = (
             f"📣 【明日は試合日】Fリーグ第{round_num}節\n"
-            f"明日 {time} キックオフ\n"
+            f"明日 {date_ja} {time} キックオフ\n"
             f"vs {opponent}\n"
             f"📍 {venue}（{home_away}）\n"
             f"#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
