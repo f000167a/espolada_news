@@ -15,6 +15,12 @@ JST = timezone(timedelta(hours=9))
 BUFFER_API_URL = "https://api.buffer.com"
 SCHEDULE_FILE = Path(__file__).parent / "schedule.json"
 MAX_DAYS_AHEAD = 21
+WEEKDAYS_JA = ["月", "火", "水", "木", "金", "土", "日"]
+
+
+def format_date_ja(date_str: str) -> str:
+    d = datetime.strptime(date_str, "%Y-%m-%d")
+    return f"{d.month}月{d.day}日（{WEEKDAYS_JA[d.weekday()]}）"
 
 
 def load_schedule() -> list[dict]:
@@ -110,6 +116,7 @@ def compose_reminder(match: dict, days_until: int) -> str:
     time = match["time"]
     venue = match["venue"]
     round_num = match["round"]
+    date_ja = format_date_ja(match["date"])
     home_away = "🏠ホーム" if match["home"] else "✈️アウェイ"
 
     if days_until == 0:
@@ -133,6 +140,7 @@ def compose_reminder(match: dict, days_until: int) -> str:
         msg = (
             f"📅 次の試合まであと{days_until}日！\n"
             f"Fリーグ第{round_num}節\n"
+            f"{date_ja} {time} キックオフ\n"
             f"vs {opponent}\n"
             f"📍 {venue}（{home_away}）\n"
             f"#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
