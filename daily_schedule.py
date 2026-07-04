@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-エスポラーダ北海道 日程案内Bot
-毎日定時に公式日程ページを案内する。
+エスポラーダ北海道 応援コンテンツBot
+毎日定時に、日程案内とチャント紹介をローテーションして投稿する。
+（試合リマインドBot＝match_reminder.pyと内容が重複しないよう、
+ こちらは日程ページ案内とチャント紹介のみを担当する）
 """
 
 import os
@@ -11,6 +13,27 @@ import requests
 
 JST = timezone(timedelta(hours=9))
 BUFFER_API_URL = "https://api.buffer.com"
+
+# チームチャント一覧（espolada_chants/index.html の chants データより）
+CHANTS = [
+    {"title": "エスポラーダコール"},
+    {"title": "北海道コール"},
+    {"title": "ビルド１"},
+    {"title": "ビルド２"},
+    {"title": "UNITE", "origin": "リパブリック讃歌"},
+    {"title": "バモ北海道"},
+    {"title": "Can't Take My Eyes Off You", "origin": "君の瞳に恋してる"},
+    {"title": "行こうぜエスポラーダ"},
+    {"title": "青と白の戦士"},
+    {"title": "ONE HEART HOKKAIDO"},
+    {"title": "バモバモ北海道"},
+    {"title": "エスポラーダGO"},
+    {"title": "エスポのゴールが見たい"},
+    {"title": "道産子の誇り"},
+]
+
+CHANT_BOOK_URL = "https://f000167a.github.io/espolada_chants/"
+SCHEDULE_URL = "https://espolada.com/match-info/fleague-schedule/"
 
 
 def buffer_graphql(api_key: str, query: str, variables: dict = None) -> dict:
@@ -88,6 +111,42 @@ def post_to_buffer(api_key: str, channel_id: str, text: str) -> bool:
         return False
 
 
+def compose_schedule_post() -> str:
+    return (
+        "📋 メットライフ生命Fリーグ2026-27\n"
+        "エスポラーダ北海道の試合日程はこちら👇\n"
+        f"🔗 {SCHEDULE_URL}\n"
+        "#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
+    )
+
+
+def compose_chant_post(chant: dict) -> str:
+    origin_line = f"（原曲：{chant['origin']}）\n" if chant.get("origin") else ""
+    return (
+        f"🎤 チャント紹介：{chant['title']}\n"
+        f"{origin_line}"
+        "声を合わせてエスポラーダを後押ししよう！\n"
+        "📖 歌詞・コールの全一覧はこちら👇\n"
+        f"🔗 {CHANT_BOOK_URL}\n"
+        "#エスポラーダ北海道 #Fリーグ"
+    )
+
+
+def compose_post(now: datetime) -> str:
+    """
+    日程案内とチャント紹介をローテーション投稿する。
+    朝(午前)と夜(午後)で別コンテンツになるよう、日付とスロットからインデックスを決定。
+    variants: [日程案内, チャント1, チャント2, ... チャントN]
+    """
+    slot = 0 if now.hour < 15 else 1
+    variants = len(CHANTS) + 1
+    idx = (now.timetuple().tm_yday * 2 + slot) % variants
+
+    if idx == 0:
+        return compose_schedule_post()
+    return compose_chant_post(CHANTS[idx - 1])
+
+
 def main():
     buffer_api_key = os.getenv("BUFFER_API_KEY")
     buffer_org_id = os.getenv("BUFFER_ORG_ID")
@@ -99,12 +158,7 @@ def main():
     now = datetime.now(JST)
     print(f"実行日時: {now.strftime('%Y-%m-%d %H:%M')}")
 
-    msg = (
-        "📋 メットライフ生命Fリーグ2026-27\n"
-        "エスポラーダ北海道の試合日程はこちら👇\n"
-        "🔗 https://espolada.com/match-info/fleague-schedule/\n"
-        "#エスポラーダ北海道 #Fリーグ #メットライフ生命Fリーグ"
-    )
+    msg = compose_post(now)
 
     print(f"--- ポスト内容 ---\n{msg}\n---")
 

@@ -24,6 +24,7 @@ OUTPUT_FILE = "docs/feed.xml"
 POSTED_FILE = "posted.json"
 JST = timezone(timedelta(hours=9))
 BUFFER_API_URL = "https://api.buffer.com"
+MAX_POSTS_PER_RUN = 3  # 1回の実行で連続投稿する最大件数（残りは次回実行時に投稿）
 
 
 def load_posted() -> set:
@@ -295,7 +296,8 @@ def main():
         print("新着記事なし。投稿スキップ。")
         return
 
-    print(f"新着記事: {len(new_articles)}件")
+    to_post = list(reversed(new_articles))[:MAX_POSTS_PER_RUN]
+    print(f"新着記事: {len(new_articles)}件（今回投稿: {len(to_post)}件、残りは次回実行時）")
 
     # Buffer API設定
     buffer_api_key = os.getenv("BUFFER_API_KEY")
@@ -310,7 +312,7 @@ def main():
         else:
             print("Bufferチャンネルが見つかりません。")
 
-    for article in reversed(new_articles):
+    for article in to_post:
         tweet = compose_tweet(article)
         print(f"投稿中: {article['title']}")
 
