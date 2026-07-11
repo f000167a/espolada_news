@@ -20,7 +20,7 @@ CHANTS = [
     {"title": "北海道コール"},
     {"title": "ビルド１"},
     {"title": "ビルド２"},
-    {"title": "UNITE", "origin": "リパブリック讃歌"},
+    {"title": "UP Draft", "origin": "リパブリック讃歌"},
     {"title": "バモ北海道"},
     {"title": "Can't Take My Eyes Off You", "origin": "君の瞳に恋してる"},
     {"title": "行こうぜエスポラーダ"},
