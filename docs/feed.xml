@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 26 Jul 2026 11:23:21 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2026 13:20:00 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>ラジオ出演のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-17/</link>
+      <guid>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-17/</guid>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>ラジオ出演のお知らせ！</description>
     </item>
     <item>
       <title>ラジオ出演のお知らせ！</title>
@@ -198,14 +206,6 @@
       <pubDate>Sun, 28 Jun 2026 00:00:00 +0900</pubDate>
       <category>レディース</category>
       <description>メットライフ生命女子Ｆリーグ2026-27 第3節（すみだ戦）　試合結果！</description>
-    </item>
-    <item>
-      <title>【U18】第13回 会長杯U18フットサルリーグ2026 第1節　試合結果！</title>
-      <link>https://espolada.com/news/%e3%80%90u18%e3%80%91%e7%ac%ac13%e5%9b%9e-%e4%bc%9a%e9%95%b7%e6%9d%afu18%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e3%83%aa%e3%83%bc%e3%82%b02026-%e7%ac%ac1%e7%af%80%e3%80%80%e8%a9%a6%e5%90%88/</link>
-      <guid>https://espolada.com/news/%e3%80%90u18%e3%80%91%e7%ac%ac13%e5%9b%9e-%e4%bc%9a%e9%95%b7%e6%9d%afu18%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%e3%83%aa%e3%83%bc%e3%82%b02026-%e7%ac%ac1%e7%af%80%e3%80%80%e8%a9%a6%e5%90%88/</guid>
-      <pubDate>Sat, 27 Jun 2026 00:00:00 +0900</pubDate>
-      <category>サテライト</category>
-      <description>【U18】第13回 会長杯U18フットサルリーグ2026 第1節　試合結果！</description>
     </item>
   </channel>
 </rss>
