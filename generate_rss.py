@@ -14,6 +14,8 @@ from xml.dom import minidom
 import requests
 from bs4 import BeautifulSoup
 
+from http_util import get_with_retry
+
 NEWS_URL = "https://espolada.com/news/"
 BASE_URL = "https://espolada.com"
 FEED_TITLE = "エスポラーダ北海道 ニュース"
@@ -43,8 +45,7 @@ def save_posted(posted: set):
 
 def fetch_news_list() -> list[dict]:
     headers = {"User-Agent": USER_AGENT}
-    resp = requests.get(NEWS_URL, headers=headers, timeout=30)
-    resp.raise_for_status()
+    resp = get_with_retry(NEWS_URL, headers=headers, timeout=30)
     soup = BeautifulSoup(resp.text, "html.parser")
 
     articles = []
@@ -279,7 +280,13 @@ def compose_tweet(article: dict) -> str:
 def main():
     os.makedirs("docs", exist_ok=True)
 
-    articles = fetch_news_list()
+    try:
+        articles = fetch_news_list()
+    except requests.RequestException as e:
+        # 一時的な接続障害。次回実行（毎時）で再試行されるため異常終了しない。
+        print(f"ニュース一覧の取得に失敗しました。今回はスキップします: {e}")
+        return
+
     if not articles:
         print("記事が取得できませんでした。")
         return
