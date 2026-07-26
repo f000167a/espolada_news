@@ -19,6 +19,8 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
+from http_util import get_with_retry
+
 # ── 設定 ──────────────────────────────────────────────
 NEWS_URL    = "https://espolada.com/news/"
 BASE_URL    = "https://espolada.com"
@@ -53,8 +55,7 @@ def save_posted_results(posted: set):
 # ── 記事一覧から試合結果記事を抽出 ───────────────────
 def fetch_match_result_articles() -> list[dict]:
     headers = {"User-Agent": USER_AGENT}
-    resp = requests.get(NEWS_URL, headers=headers, timeout=30)
-    resp.raise_for_status()
+    resp = get_with_retry(NEWS_URL, headers=headers, timeout=30)
     soup = BeautifulSoup(resp.text, "html.parser")
 
     results = []
@@ -115,8 +116,7 @@ def parse_result_article(url: str) -> dict | None:
     """
     headers = {"User-Agent": USER_AGENT}
     try:
-        resp = requests.get(url, headers=headers, timeout=30)
-        resp.raise_for_status()
+        resp = get_with_retry(url, headers=headers, timeout=30)
     except Exception as e:
         print(f"  記事取得失敗: {e}")
         return None
@@ -259,7 +259,12 @@ def main():
         return
 
     posted = load_posted_results()
-    articles = fetch_match_result_articles()
+    try:
+        articles = fetch_match_result_articles()
+    except requests.RequestException as e:
+        # 一時的な接続障害。次回実行で再試行されるため異常終了しない。
+        print(f"記事一覧の取得に失敗しました。今回はスキップします: {e}")
+        return
 
     new_articles = [a for a in articles if a["url"] not in posted]
     if not new_articles:

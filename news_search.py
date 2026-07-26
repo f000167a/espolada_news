@@ -14,6 +14,8 @@ from urllib.parse import quote
 
 import requests
 
+from http_util import get_with_retry
+
 JST = timezone(timedelta(hours=9))
 BUFFER_API_URL = "https://api.buffer.com"
 POSTED_NEWS_FILE = Path(__file__).parent / "posted_news.json"
@@ -46,8 +48,7 @@ def fetch_google_news(keyword: str) -> list[dict]:
     # when:7d で直近7日間に限定
     url = f"https://news.google.com/rss/search?q={quote(keyword)}+when:7d&hl=ja&gl=JP&ceid=JP:ja"
     try:
-        resp = requests.get(url, timeout=15)
-        resp.raise_for_status()
+        resp = get_with_retry(url, timeout=15)
     except requests.RequestException as e:
         print(f"Google News取得失敗 ({keyword}): {e}")
         return []
