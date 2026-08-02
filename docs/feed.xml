@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 02 Aug 2026 09:07:39 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 11:15:17 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>【背番号1番 戸田貴英選手】リーグ通算100試合出場達成</title>
+      <link>https://espolada.com/news/%e3%80%90%e8%83%8c%e7%95%aa%e5%8f%b71%e7%95%aa-%e6%88%b8%e7%94%b0%e8%b2%b4%e8%8b%b1%e9%81%b8%e6%89%8b%e3%80%91%e3%83%aa%e3%83%bc%e3%82%b0%e9%80%9a%e7%ae%97100%e8%a9%a6%e5%90%88%e5%87%ba%e5%a0%b4/</link>
+      <guid>https://espolada.com/news/%e3%80%90%e8%83%8c%e7%95%aa%e5%8f%b71%e7%95%aa-%e6%88%b8%e7%94%b0%e8%b2%b4%e8%8b%b1%e9%81%b8%e6%89%8b%e3%80%91%e3%83%aa%e3%83%bc%e3%82%b0%e9%80%9a%e7%ae%97100%e8%a9%a6%e5%90%88%e5%87%ba%e5%a0%b4/</guid>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>【背番号1番 戸田貴英選手】リーグ通算100試合出場達成</description>
     </item>
     <item>
       <title>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第10節（立川戦）試合結果！</title>
@@ -198,14 +206,6 @@
       <pubDate>Sat, 04 Jul 2026 00:00:00 +0900</pubDate>
       <category>レディース</category>
       <description>メットライフ生命女子Ｆリーグ2026-27 第4節（浦安戦）　試合結果！</description>
-    </item>
-    <item>
-      <title>【HOME GAME：よつ葉アリーナ十勝】メットライフ生命Ｆリーグ2026-27 ディビジョン1 第7節（すみだ戦）のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e3%82%88%e3%81%a4%e8%91%89%e3%82%a2%e3%83%aa%e3%83%bc%e3%83%8a%e5%8d%81%e5%8b%9d%e3%80%91%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86-3/</link>
-      <guid>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e3%82%88%e3%81%a4%e8%91%89%e3%82%a2%e3%83%aa%e3%83%bc%e3%83%8a%e5%8d%81%e5%8b%9d%e3%80%91%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86-3/</guid>
-      <pubDate>Fri, 03 Jul 2026 00:00:00 +0900</pubDate>
-      <category>試合</category>
-      <description>【HOME GAME：よつ葉アリーナ十勝】メットライフ生命Ｆリーグ2026-27 ディビジョン1 第7節（すみだ戦）のお知らせ！</description>
     </item>
   </channel>
 </rss>
