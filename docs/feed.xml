@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 23 Aug 2026 05:27:56 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 06:38:35 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>メットライフ生命女子Ｆリーグ2026-27 第8節（さいたま戦）　試合結果！</title>
+      <link>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e5%a5%b3%e5%ad%90%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e7%ac%ac8%e7%af%80%ef%bc%88%e3%81%95%e3%81%84%e3%81%9f%e3%81%be-2/</link>
+      <guid>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e5%a5%b3%e5%ad%90%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e7%ac%ac8%e7%af%80%ef%bc%88%e3%81%95%e3%81%84%e3%81%9f%e3%81%be-2/</guid>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0900</pubDate>
+      <category>レディース</category>
+      <description>メットライフ生命女子Ｆリーグ2026-27 第8節（さいたま戦）　試合結果！</description>
     </item>
     <item>
       <title>ホームゲーム 観戦チケット発売のお知らせ！</title>
@@ -198,14 +206,6 @@
       <pubDate>Wed, 15 Jul 2026 00:00:00 +0900</pubDate>
       <category>試合</category>
       <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第8節（大阪戦）のお知らせ！</description>
-    </item>
-    <item>
-      <title>メットライフ生命女子Ｆリーグ2026-27 第5節（西宮戦）のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e5%a5%b3%e5%ad%90%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e7%ac%ac5%e7%af%80%ef%bc%88%e8%a5%bf%e5%ae%ae%e6%88%a6%ef%bc%89/</link>
-      <guid>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e5%a5%b3%e5%ad%90%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e7%ac%ac5%e7%af%80%ef%bc%88%e8%a5%bf%e5%ae%ae%e6%88%a6%ef%bc%89/</guid>
-      <pubDate>Wed, 15 Jul 2026 00:00:00 +0900</pubDate>
-      <category>レディース</category>
-      <description>メットライフ生命女子Ｆリーグ2026-27 第5節（西宮戦）のお知らせ！</description>
     </item>
   </channel>
 </rss>
