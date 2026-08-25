@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Tue, 25 Aug 2026 02:57:12 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 03:51:53 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>【HOME GAME：ウインドヒルくしろスーパーアリーナ】⭐️⭐️ATHLETA MATCHDAY⭐️⭐️メットライフ生命Ｆリーグ2026-27 ディビジョン１ 第11節（町田戦）のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e3%82%a6%e3%82%a4%e3%83%b3%e3%83%89%e3%83%92%e3%83%ab%e3%81%8f%e3%81%97%e3%82%8d%e3%82%b9%e3%83%bc%e3%83%91%e3%83%bc%e3%82%a2%e3%83%aa%e3%83%bc%e3%83%8a%e3%80%91%e2%ad%90/</link>
+      <guid>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e3%82%a6%e3%82%a4%e3%83%b3%e3%83%89%e3%83%92%e3%83%ab%e3%81%8f%e3%81%97%e3%82%8d%e3%82%b9%e3%83%bc%e3%83%91%e3%83%bc%e3%82%a2%e3%83%aa%e3%83%bc%e3%83%8a%e3%80%91%e2%ad%90/</guid>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 +0900</pubDate>
+      <category>試合</category>
+      <description>【HOME GAME：ウインドヒルくしろスーパーアリーナ】⭐️⭐️ATHLETA MATCHDAY⭐️⭐️メットライフ生命Ｆリーグ2026-27 ディビジョン１ 第11節（町田戦）のお知らせ！</description>
     </item>
     <item>
       <title>メットライフ生命女子Ｆリーグ2026-27 第8節（さいたま戦）　試合結果！</title>
@@ -198,14 +206,6 @@
       <pubDate>Thu, 16 Jul 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【トップチーム】登録カテゴリー変更選手のお知らせ</description>
-    </item>
-    <item>
-      <title>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第8節（大阪戦）のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e3%83%87%e3%82%a3%e3%83%93%e3%82%b8%e3%83%a7%e3%83%b31-%e7%ac%ac8%e7%af%80%ef%bc%88/</link>
-      <guid>https://espolada.com/news/%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%ef%bd%86%e3%83%aa%e3%83%bc%e3%82%b02026-27-%e3%83%87%e3%82%a3%e3%83%93%e3%82%b8%e3%83%a7%e3%83%b31-%e7%ac%ac8%e7%af%80%ef%bc%88/</guid>
-      <pubDate>Wed, 15 Jul 2026 00:00:00 +0900</pubDate>
-      <category>試合</category>
-      <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第8節（大阪戦）のお知らせ！</description>
     </item>
   </channel>
 </rss>
