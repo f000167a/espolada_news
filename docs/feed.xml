@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Tue, 01 Sep 2026 07:19:04 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 13:07:42 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,13 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>メディア2026.09.01ラジオ出演のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-19/</link>
+      <guid>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-19/</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 +0900</pubDate>
+      <description>メディア2026.09.01ラジオ出演のお知らせ！</description>
     </item>
     <item>
       <title>【HOME GAME：ウインドヒルくしろスーパーアリーナ】⭐️⭐️ATHLETA MATCHDAY⭐️⭐️メットライフ生命Ｆリーグ2026-27 ディビジョン１ 第11節（町田戦）のお知らせ！</title>
@@ -198,14 +205,6 @@
       <pubDate>Sat, 18 Jul 2026 00:00:00 +0900</pubDate>
       <category>試合</category>
       <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第8節（大阪戦）試合結果！</description>
-    </item>
-    <item>
-      <title>【トップチーム】登録カテゴリー変更選手のお知らせ</title>
-      <link>https://espolada.com/news/%e3%80%90%e3%83%88%e3%83%83%e3%83%97%e3%83%81%e3%83%bc%e3%83%a0%e3%80%91%e7%99%bb%e9%8c%b2%e3%82%ab%e3%83%86%e3%82%b4%e3%83%aa%e3%83%bc%e5%a4%89%e6%9b%b4%e9%81%b8%e6%89%8b%e3%81%ae%e3%81%8a%e7%9f%a5/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e3%83%88%e3%83%83%e3%83%97%e3%83%81%e3%83%bc%e3%83%a0%e3%80%91%e7%99%bb%e9%8c%b2%e3%82%ab%e3%83%86%e3%82%b4%e3%83%aa%e3%83%bc%e5%a4%89%e6%9b%b4%e9%81%b8%e6%89%8b%e3%81%ae%e3%81%8a%e7%9f%a5/</guid>
-      <pubDate>Thu, 16 Jul 2026 00:00:00 +0900</pubDate>
-      <category>お知らせ</category>
-      <description>【トップチーム】登録カテゴリー変更選手のお知らせ</description>
     </item>
   </channel>
 </rss>
