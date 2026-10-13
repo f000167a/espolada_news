@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Tue, 13 Oct 2026 01:06:59 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 08:59:19 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>【HOME GAME：北海きたえーる】⭐️⭐️北海きたえーるMATCHDAY⭐️⭐️ メットライフ生命Ｆリーグ2026-27 ディビジョン1 第16節（浦安戦）のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e5%8c%97%e6%b5%b7%e3%81%8d%e3%81%9f%e3%81%88%e3%83%bc%e3%82%8b%e3%80%91%e2%ad%90%ef%b8%8f%e2%ad%90%ef%b8%8f%e5%8c%97%e6%b5%b7%e3%81%8d%e3%81%9f%e3%81%88%e3%83%bc%e3%82%8bma/</link>
+      <guid>https://espolada.com/news/%e3%80%90home-game%ef%bc%9a%e5%8c%97%e6%b5%b7%e3%81%8d%e3%81%9f%e3%81%88%e3%83%bc%e3%82%8b%e3%80%91%e2%ad%90%ef%b8%8f%e2%ad%90%ef%b8%8f%e5%8c%97%e6%b5%b7%e3%81%8d%e3%81%9f%e3%81%88%e3%83%bc%e3%82%8bma/</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0900</pubDate>
+      <category>試合</category>
+      <description>【HOME GAME：北海きたえーる】⭐️⭐️北海きたえーるMATCHDAY⭐️⭐️ メットライフ生命Ｆリーグ2026-27 ディビジョン1 第16節（浦安戦）のお知らせ！</description>
     </item>
     <item>
       <title>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第15節（湘南戦）試合結果！</title>
@@ -193,14 +201,6 @@
       <pubDate>Sat, 26 Sep 2026 00:00:00 +0900</pubDate>
       <category>試合</category>
       <description>メットライフ生命Ｆリーグ2026-27 ディビジョン1 第13節（すみだ戦）試合結果！</description>
-    </item>
-    <item>
-      <title>ラジオ出演のお知らせ！</title>
-      <link>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-20/</link>
-      <guid>https://espolada.com/news/%e3%83%a9%e3%82%b8%e3%82%aa%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-20/</guid>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 +0900</pubDate>
-      <category>お知らせ</category>
-      <description>ラジオ出演のお知らせ！</description>
     </item>
   </channel>
 </rss>
