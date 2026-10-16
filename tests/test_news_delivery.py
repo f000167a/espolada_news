@@ -110,15 +110,31 @@ class OfficialNewsDeliveryTests(OfflineTestCase):
         self.assertEqual(self.buffer.call_count, 2)
         self.assertEqual(generate_rss.load_posted(), {official_article(1)["url"]})
 
-    def test_three_attempt_limit_keeps_failed_and_remaining_articles_pending(self):
+    def test_three_success_limit_keeps_failed_and_remaining_articles_pending(self):
+        self.credentials()
+        self.fetch.return_value = [official_article(i) for i in [5, 4, 3, 2, 1]]
+        self.buffer.side_effect = [True, False, True, True]
+        generate_rss.main()
+        self.assertEqual(self.buffer.call_count, 4)
+        self.assertEqual(generate_rss.load_posted(), {
+            official_article(i)["url"] for i in [1, 3, 4]
+        })
+
+    def test_permanent_failures_do_not_starve_later_articles(self):
         self.credentials()
         self.fetch.return_value = [official_article(i) for i in [4, 3, 2, 1]]
-        self.buffer.side_effect = [True, False, True]
-        generate_rss.main()
-        self.assertEqual(self.buffer.call_count, 3)
-        self.assertEqual(generate_rss.load_posted(), {
-            official_article(1)["url"], official_article(3)["url"],
-        })
+        attempted = []
+
+        def respond(api_key, channel_id, text):
+            attempted.append(text)
+            return official_article(4)["url"] in text
+
+        self.buffer.side_effect = respond
+        for _ in range(3):
+            generate_rss.main()
+        self.assertEqual(generate_rss.load_posted(), {official_article(4)["url"]})
+        self.assertEqual(sum(official_article(4)["url"] in text for text in attempted), 1)
+        self.assertEqual(len(attempted), 10)
 
 
 class SearchNewsDeliveryTests(OfflineTestCase):
@@ -217,6 +233,30 @@ class SearchNewsDeliveryTests(OfflineTestCase):
         news_search.main()
         self.assertEqual(news_search.load_posted_news(), set())
         self.buffer.assert_not_called()
+
+    def test_permanent_failures_do_not_starve_later_stories(self):
+        self.fetch.return_value = [search_article(i) for i in range(1, 5)]
+        attempted = []
+
+        def respond(api_key, channel_id, text):
+            attempted.append(text)
+            return search_article(4)["link"] in text
+
+        self.buffer.side_effect = respond
+        for _ in range(3):
+            news_search.main()
+        self.assertEqual(news_search.load_posted_news(), {search_article(4)["link"]})
+        self.assertEqual(sum(search_article(4)["link"] in text for text in attempted), 1)
+        self.assertEqual(len(attempted), 10)
+
+    def test_three_success_limit_skips_failures_and_leaves_later_stories_pending(self):
+        self.fetch.return_value = [search_article(i) for i in range(1, 6)]
+        self.buffer.side_effect = [True, False, True, True]
+        news_search.main()
+        self.assertEqual(self.buffer.call_count, 4)
+        self.assertEqual(news_search.load_posted_news(), {
+            search_article(i)["link"] for i in [1, 3, 4]
+        })
 
     def test_repeated_url_across_searches_is_only_sent_once(self):
         self.buffer.return_value = True

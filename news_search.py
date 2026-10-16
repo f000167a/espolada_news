@@ -275,7 +275,9 @@ def main():
         return
 
     count = 0
-    for group in unique_articles[:max_posts]:
+    for group in unique_articles:
+        if count >= max_posts:
+            break
         article = group["article"]
         tweet = compose_news_post(article)
         print(f"投稿中: {article['title']}")

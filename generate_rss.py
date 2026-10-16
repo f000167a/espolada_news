@@ -308,8 +308,8 @@ def main():
         print("新着記事なし。投稿スキップ。")
         return
 
-    to_post = list(reversed(new_articles))[:MAX_POSTS_PER_RUN]
-    print(f"新着記事: {len(new_articles)}件（今回投稿: {len(to_post)}件、残りは次回実行時）")
+    to_post = list(reversed(new_articles))
+    print(f"新着記事: {len(new_articles)}件（最大{MAX_POSTS_PER_RUN}件投稿、残りは次回実行時）")
 
     # Buffer API設定
     buffer_api_key = os.getenv("BUFFER_API_KEY")
@@ -327,7 +327,10 @@ def main():
         else:
             print("Bufferチャンネルが見つかりません。")
 
+    posted_count = 0
     for article in to_post:
+        if posted_count >= MAX_POSTS_PER_RUN:
+            break
         tweet = compose_tweet(article)
         print(f"投稿中: {article['title']}")
 
@@ -347,6 +350,7 @@ def main():
 
         posted.add(article["url"])
         save_posted(posted)
+        posted_count += 1
 
 
 if __name__ == "__main__":
