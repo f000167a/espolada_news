@@ -111,8 +111,8 @@ def fetch_match_result_articles() -> list[dict]:
 def parse_result_article(url: str) -> dict | None:
     """
     記事本文を取得してスコアと節番号を抽出する。
-    返り値: {"node": int, "score_espo": int, "score_opp": int, "win_loss": "○"|"●"|"△"}
-    または None（抽出失敗）
+    返り値: {"node": int, "result": "○ 3-2" など}。
+    節番号・スコアの向きが一意に確認できない場合は None（未解決）。
     """
     headers = {"User-Agent": USER_AGENT}
     try:
@@ -122,60 +122,71 @@ def parse_result_article(url: str) -> dict | None:
         return None
 
     soup = BeautifulSoup(resp.text, "html.parser")
-    text = soup.get_text(" ", strip=True)
+    # 関連記事・ナビゲーションの節番号やスコアを混ぜない。
+    content = soup.find("article") or soup.find("main") or soup.body or soup
+    for element in content.find_all(["nav", "footer", "aside", "script", "style"]):
+        element.decompose()
+    text = content.get_text(" ", strip=True)
 
-    # 節番号の抽出
-    # 例: 「第1節」「第12節」
-    node_match = re.search(r"第\s*(\d+)\s*節", text)
-    node = int(node_match.group(1)) if node_match else None
+    nodes = {int(value) for value in re.findall(r"第\s*(\d+)\s*節", text)}
+    if len(nodes) != 1 or 0 in nodes:
+        print(f"  節番号を一意に確認できませんでした（未解決）: {url}")
+        return None
+    node = nodes.pop()
 
-    if node is None:
-        print(f"  節番号が見つかりませんでした: {url}")
+    # 前半・後半のラベルが祖先要素や見出しにある場合もある。
+    # セクションと最終結果の関連を証明できないため、半分のスコアを
+    # 含む記事は保守的に未解決とする。
+    if re.search(r"前半|後半|ハーフタイム", text):
+        print(f"  前後半のスコアと最終結果の区別が必要です（未解決）: {url}")
         return None
 
-    # スコアの抽出
-    # エスポラーダのスコアが左か右かを判定して取得
-    # パターン1: 「エスポラーダ北海道 X－Y 相手」
-    # パターン2: 「相手 X－Y エスポラーダ北海道」
-    # パターン3: スコアのみ「X-Y」
-
-    espo_score = None
-    opp_score  = None
-
-    # エスポラーダが左に書かれているパターン
-    m = re.search(
-        r"エスポラーダ北海道\D{0,10}?(\d+)\s*[-－–]\s*(\d+)\D{0,30}?(?:vs|対|　)",
-        text
+    # チーム名に隣接するスコアのみを候補にする。年号やページ中で
+    # 最初に見つかった X-Y からスコア・ホーム/アウェーを推定しない。
+    left_pattern = re.compile(
+        r"エスポラーダ北海道\s*(?P<before>[○〇●△])?\s*"
+        r"(?P<a>\d{1,2})\s*[-－–]\s*(?P<b>\d{1,2})(?!\d)"
+        r"\s*(?P<after>[○〇●△])?"
     )
-    if m:
-        espo_score = int(m.group(1))
-        opp_score  = int(m.group(2))
+    right_pattern = re.compile(
+        r"(?<!\d)(?P<a>\d{1,2})\s*[-－–]\s*(?P<b>\d{1,2})"
+        r"\s*(?P<before>[○〇●△])?\s*エスポラーダ北海道\s*(?P<after>[○〇●△])?"
+    )
 
-    # エスポラーダが右に書かれているパターン
-    if espo_score is None:
-        m = re.search(
-            r"(\d+)\s*[-－–]\s*(\d+)\D{0,30}?エスポラーダ北海道",
-            text
-        )
-        if m:
-            opp_score  = int(m.group(1))
-            espo_score = int(m.group(2))
+    def labeled_scores(value):
+        scores = set()
+        for pattern, reverse in [(left_pattern, False), (right_pattern, True)]:
+            for match in pattern.finditer(value):
+                a, b = int(match.group("a")), int(match.group("b"))
+                own, opponent = (b, a) if reverse else (a, b)
+                expected = "○〇" if own > opponent else "●" if own < opponent else "△"
+                for marker in [match.group("before"), match.group("after")]:
+                    if marker and marker not in expected:
+                        return None
+                scores.add((own, opponent))
+        return scores
 
-    # スコアのみのパターン（シンプルな「X-Y」を最初の出現から取得）
-    if espo_score is None:
-        # ページ内の全スコアパターンを取得
-        scores = re.findall(r"\b(\d+)\s*[-－–]\s*(\d+)\b", text)
-        if scores:
-            # 最初に出現するスコアをとりあえず使う（精度が低いのでログ出力）
-            a, b = scores[0]
-            print(f"  スコア推定（要確認）: {a}-{b}")
-            # ホーム/アウェー判定が難しいため、後述のscheduleから判断
-            espo_score = int(a)
-            opp_score  = int(b)
-
-    if espo_score is None:
-        print(f"  スコアが見つかりませんでした: {url}")
+    # 見出しや親要素の直接テキストを含め、全候補の矛盾を確認する。
+    scores = labeled_scores(text)
+    if scores is None or len(scores) != 1:
+        print(f"  チーム名付きの最終スコアを一意に確認できませんでした（未解決）: {url}")
         return None
+
+    # 見出しのチーム名と別段落の数字が偶然つながっただけでは受理しない。
+    block_tags = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "li", "tr", "div"]
+    blocks = [element for element in content.find_all(block_tags)
+              if not element.find(block_tags)] or [content]
+    local_scores = set()
+    for block in blocks:
+        candidate = labeled_scores(block.get_text(" ", strip=True))
+        if candidate is None:
+            print(f"  勝敗記号とスコアが一致しませんでした（未解決）: {url}")
+            return None
+        local_scores.update(candidate)
+    if local_scores != scores:
+        print(f"  同じ本文ブロック内でチームとスコアを確認できませんでした（未解決）: {url}")
+        return None
+    espo_score, opp_score = scores.pop()
 
     # 勝敗判定
     if espo_score > opp_score:
@@ -216,11 +227,17 @@ def update_schedule_json(node: int, result: str, pat: str) -> bool:
     # 該当節を更新
     updated = False
     for match in content["matches"]:
-        if match["node"] == node and match["result"] is None:
+        if match["node"] != node:
+            continue
+        if match["result"] == result:
+            # 前回GitHub更新だけが成功し、履歴保存前に止まった場合の再実行。
+            print(f"  schedule.json 第{node}節は同じ結果で反映済み: {result}")
+            return True
+        if match["result"] is None:
             match["result"] = result
             updated = True
             print(f"  schedule.json 第{node}節を更新: {result}")
-            break
+        break
 
     if not updated:
         print(f"  第{node}節が見つからないか既に結果あり。スキップ。")
@@ -277,20 +294,25 @@ def main():
         print(f"\n処理中: {article['title']}")
         parsed = parse_result_article(article["url"])
 
-        if parsed:
-            success = update_schedule_json(
-                node   = parsed["node"],
-                result = parsed["result"],
-                pat    = pat,
-            )
-            if success:
-                print(f"  ✓ 反映完了")
-            else:
-                print(f"  ✗ 反映失敗")
-        else:
-            print(f"  ✗ パース失敗")
+        if not parsed:
+            print("  ✗ 未解決。処理済みにせず、次回実行に残します。")
+            continue
 
-        # 処理済みとして記録（成否に関わらず）
+        try:
+            success = update_schedule_json(
+                node=parsed["node"],
+                result=parsed["result"],
+                pat=pat,
+            )
+        except (requests.RequestException, ValueError, KeyError) as e:
+            print(f"  ✗ 反映失敗: {e}")
+            continue
+        if not success:
+            print("  ✗ 反映失敗。処理済みにせず、次回実行に残します。")
+            continue
+
+        print("  ✓ 反映完了")
+        # 反映成功（同じ結果の反映済みも含む）だけを処理済みとして記録。
         posted.add(article["url"])
         save_posted_results(posted)
 

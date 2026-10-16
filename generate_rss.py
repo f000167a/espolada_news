@@ -183,15 +183,17 @@ def get_buffer_channel_id(api_key: str, org_id: str) -> str:
     """
     variables = {"input": {"organizationId": org_id}}
     result = buffer_graphql(api_key, query, variables)
-    channels = result.get("data", {}).get("channels", [])
+    if result.get("errors"):
+        print(f"Bufferチャンネル取得エラー: {result['errors']}")
+        return ""
+    channels = (result.get("data") or {}).get("channels") or []
 
     for ch in channels:
-        print(f"  Buffer チャンネル: {ch['name']} ({ch['service']}) id={ch['id']}")
-        if ch.get("service") in ("twitter", "x"):
+        print(f"  Buffer チャンネル: {ch.get('name')} ({ch.get('service')})")
+        if ch.get("service") in ("twitter", "x") and ch.get("id"):
             return ch["id"]
 
-    if channels:
-        return channels[0]["id"]
+    # X以外のチャンネルへ誤投稿しない。
     return ""
 
 
@@ -222,15 +224,18 @@ def post_to_buffer(api_key: str, channel_id: str, text: str) -> bool:
 
     try:
         result = buffer_graphql(api_key, query, variables)
-        if "errors" in result:
+        if result.get("errors"):
             print(f"Buffer投稿エラー: {result['errors']}")
             return False
-        create_post = result.get("data", {}).get("createPost", {})
+        create_post = (result.get("data") or {}).get("createPost") or {}
         if "message" in create_post:
             print(f"Buffer投稿エラー: {create_post['message']}")
             return False
-        post = create_post.get("post", {})
-        print(f"Buffer投稿成功: id={post.get('id')}")
+        post = create_post.get("post") or {}
+        if not post.get("id"):
+            print("Buffer投稿成功を確認できませんでした（投稿IDなし）。")
+            return False
+        print(f"Buffer投稿成功: id={post['id']}")
         return True
     except Exception as e:
         print(f"Buffer投稿失敗: {e}")
@@ -303,8 +308,8 @@ def main():
         print("新着記事なし。投稿スキップ。")
         return
 
-    to_post = list(reversed(new_articles))[:MAX_POSTS_PER_RUN]
-    print(f"新着記事: {len(new_articles)}件（今回投稿: {len(to_post)}件、残りは次回実行時）")
+    to_post = list(reversed(new_articles))
+    print(f"新着記事: {len(new_articles)}件（最大{MAX_POSTS_PER_RUN}件投稿、残りは次回実行時）")
 
     # Buffer API設定
     buffer_api_key = os.getenv("BUFFER_API_KEY")
@@ -313,13 +318,19 @@ def main():
 
     if buffer_api_key and buffer_org_id:
         print("Bufferチャンネル検索中...")
-        buffer_channel_id = get_buffer_channel_id(buffer_api_key, buffer_org_id)
+        try:
+            buffer_channel_id = get_buffer_channel_id(buffer_api_key, buffer_org_id)
+        except (requests.RequestException, ValueError) as e:
+            print(f"Bufferチャンネル取得失敗: {e}")
         if buffer_channel_id:
             print(f"Bufferチャンネル: {buffer_channel_id}")
         else:
             print("Bufferチャンネルが見つかりません。")
 
+    posted_count = 0
     for article in to_post:
+        if posted_count >= MAX_POSTS_PER_RUN:
+            break
         tweet = compose_tweet(article)
         print(f"投稿中: {article['title']}")
 
@@ -334,10 +345,12 @@ def main():
             posted_ok = post_to_x(tweet)
 
         if not posted_ok:
-            print("投稿手段なし。スキップ。")
+            print("投稿に成功しませんでした。未投稿のまま次回実行に残します。")
+            continue
 
         posted.add(article["url"])
         save_posted(posted)
+        posted_count += 1
 
 
 if __name__ == "__main__":

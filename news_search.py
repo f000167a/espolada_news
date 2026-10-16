@@ -129,12 +129,14 @@ def get_buffer_channel_id(api_key: str, org_id: str) -> str:
     """
     variables = {"input": {"organizationId": org_id}}
     result = buffer_graphql(api_key, query, variables)
-    channels = result.get("data", {}).get("channels", [])
+    if result.get("errors"):
+        print(f"Bufferチャンネル取得エラー: {result['errors']}")
+        return ""
+    channels = (result.get("data") or {}).get("channels") or []
     for ch in channels:
-        if ch.get("service") in ("twitter", "x"):
+        if ch.get("service") in ("twitter", "x") and ch.get("id"):
             return ch["id"]
-    if channels:
-        return channels[0]["id"]
+    # X以外のチャンネルへ誤投稿しない。
     return ""
 
 
@@ -164,28 +166,39 @@ def post_to_buffer(api_key: str, channel_id: str, text: str) -> bool:
     }
     try:
         result = buffer_graphql(api_key, query, variables)
-        if "errors" in result:
+        if result.get("errors"):
             print(f"Buffer投稿エラー: {result['errors']}")
             return False
-        create_post = result.get("data", {}).get("createPost", {})
+        create_post = (result.get("data") or {}).get("createPost") or {}
         if "message" in create_post:
             print(f"Buffer投稿エラー: {create_post['message']}")
             return False
-        post = create_post.get("post", {})
-        print(f"Buffer投稿成功: id={post.get('id')}")
+        post = create_post.get("post") or {}
+        if not post.get("id"):
+            print("Buffer投稿成功を確認できませんでした（投稿IDなし）。")
+            return False
+        print(f"Buffer投稿成功: id={post['id']}")
         return True
     except Exception as e:
         print(f"Buffer投稿失敗: {e}")
         return False
 
 
+def article_title(article: dict) -> str:
+    """媒体名の接尾辞だけを除去し、スコアなど本文中のハイフンは保つ。"""
+    title = article["title"].strip()
+    source = article.get("source", "").strip()
+    suffix = f" - {source}"
+    if source and title.endswith(suffix):
+        title = title[:-len(suffix)].rstrip()
+    return title
+
+
 def compose_news_post(article: dict) -> str:
-    title = article["title"]
     link = article["link"]
     source = article["source"]
 
-    # タイトルから末尾の " - ソース名" を除去
-    title_clean = re.sub(r"\s*-\s*[^-]+$", "", title).strip()
+    title_clean = article_title(article)
 
     if source:
         msg = (
@@ -221,46 +234,61 @@ def main():
         print(f"  → {len(articles)}件取得")
         all_articles.extend(articles)
 
-    # URL重複排除 + タイトル類似排除
-    seen = set()
-    seen_titles = []
+    # 全タイトルが一致する記事だけをまとめる。共通の冒頭だけでは
+    # 別の試合結果やお知らせまで重複と誤判定してしまう。
+    seen_urls = set()
+    groups = {}
+    for article in all_articles:
+        url = article["link"]
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+        title_key = re.sub(r"[\s　]", "", article_title(article)).casefold()
+        group = groups.setdefault(title_key, {"article": article, "urls": set()})
+        group["urls"].add(url)
+
+    previously_posted = posted.copy()
     unique_articles = []
-    for a in all_articles:
-        if a["link"] in seen or a["link"] in posted:
-            continue
-            
-        # タイトルの先頭20文字が既出と一致したらスキップ（同じニュースの別媒体）
-        title_key = re.sub(r"[\s　]", "", a["title"])[:20]
-        if any(title_key == t for t in seen_titles):
-            print(f"  スキップ（重複ニュース）: {a['title']}")
-            posted.add(a["link"])  # 重複もpostedに追加して再検出防止
-            continue
-        seen.add(a["link"])
-        seen_titles.append(title_key)
-        unique_articles.append(a)
+    for group in groups.values():
+        if group["urls"] & posted:
+            # 同じ記事の別URLは、代表URLの投稿が確認できている場合だけ記録。
+            posted.update(group["urls"])
+        else:
+            unique_articles.append(group)
+    if posted != previously_posted:
+        save_posted_news(posted)
 
     if not unique_articles:
         print("新着ニュースなし。")
-        save_posted_news(posted)
         return
 
     print(f"新着ニュース: {len(unique_articles)}件（最大{max_posts}件投稿）")
 
     print("Bufferチャンネル検索中...")
-    channel_id = get_buffer_channel_id(buffer_api_key, buffer_org_id)
+    try:
+        channel_id = get_buffer_channel_id(buffer_api_key, buffer_org_id)
+    except (requests.RequestException, ValueError) as e:
+        print(f"Bufferチャンネル取得失敗: {e}")
+        return
     if not channel_id:
         print("Bufferチャンネルが見つかりません。")
         return
 
     count = 0
-    for article in unique_articles[:max_posts]:
+    for group in unique_articles:
+        if count >= max_posts:
+            break
+        article = group["article"]
         tweet = compose_news_post(article)
         print(f"投稿中: {article['title']}")
-        post_to_buffer(buffer_api_key, channel_id, tweet)
-        posted.add(article["link"])
+        if not post_to_buffer(buffer_api_key, channel_id, tweet):
+            print("投稿に成功しませんでした。未投稿のまま次回実行に残します。")
+            continue
+        posted.update(group["urls"])
+        # 後続の投稿が失敗しても、成功済みの投稿を次回重複させない。
+        save_posted_news(posted)
         count += 1
 
-    save_posted_news(posted)
     print(f"投稿完了: {count}件")
 
 
