@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 19 Oct 2026 05:45:20 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 12:15:08 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,22 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>【イルネ】大会出場のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%80%90%e3%82%a4%e3%83%ab%e3%83%8d%e3%80%91%e5%a4%a7%e4%bc%9a%e5%87%ba%e5%a0%b4%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81/</link>
+      <guid>https://espolada.com/news/%e3%80%90%e3%82%a4%e3%83%ab%e3%83%8d%e3%80%91%e5%a4%a7%e4%bc%9a%e5%87%ba%e5%a0%b4%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81/</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0900</pubDate>
+      <category>レディース</category>
+      <description>【イルネ】大会出場のお知らせ！</description>
+    </item>
+    <item>
+      <title>ホームゲーム 観戦チケット発売のお知らせ！</title>
+      <link>https://espolada.com/news/%e3%83%9b%e3%83%bc%e3%83%a0%e3%82%b2%e3%83%bc%e3%83%a0-%e8%a6%b3%e6%88%a6%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e7%99%ba%e5%a3%b2%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-6/</link>
+      <guid>https://espolada.com/news/%e3%83%9b%e3%83%bc%e3%83%a0%e3%82%b2%e3%83%bc%e3%83%a0-%e8%a6%b3%e6%88%a6%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e7%99%ba%e5%a3%b2%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%81-6/</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>ホームゲーム 観戦チケット発売のお知らせ！</description>
     </item>
     <item>
       <title>【トップチーム】登録カテゴリー変更選手のお知らせ</title>
@@ -186,20 +202,6 @@
       <guid>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e7%a6%8f/</guid>
       <pubDate>Mon, 28 Sep 2026 00:00:00 +0900</pubDate>
       <description>地域貢献2026.09.28【活動報告】チャレンジフットサル＿札幌市立福住小学校</description>
-    </item>
-    <item>
-      <title>地域貢献2026.09.28【活動報告】チャレンジフットサル＿札幌市立鴻城小学校</title>
-      <link>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e9%b4%bb/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e9%b4%bb/</guid>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 +0900</pubDate>
-      <description>地域貢献2026.09.28【活動報告】チャレンジフットサル＿札幌市立鴻城小学校</description>
-    </item>
-    <item>
-      <title>地域貢献2026.09.28【活動報告】チャレンジフットサル＿札幌市立栄東小学校</title>
-      <link>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e6%a0%84-2/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e6%a0%84-2/</guid>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 +0900</pubDate>
-      <description>地域貢献2026.09.28【活動報告】チャレンジフットサル＿札幌市立栄東小学校</description>
     </item>
   </channel>
 </rss>
