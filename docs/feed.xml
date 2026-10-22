@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 21 Oct 2026 07:06:10 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 07:08:28 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,14 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>公式ホームページ再開のお知らせ</title>
+      <link>https://espolada.com/news/%e5%85%ac%e5%bc%8f%e3%83%9b%e3%83%bc%e3%83%a0%e3%83%9a%e3%83%bc%e3%82%b8%e5%86%8d%e9%96%8b%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/</link>
+      <guid>https://espolada.com/news/%e5%85%ac%e5%bc%8f%e3%83%9b%e3%83%bc%e3%83%a0%e3%83%9a%e3%83%bc%e3%82%b8%e5%86%8d%e9%96%8b%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/</guid>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0900</pubDate>
+      <category>お知らせ</category>
+      <description>公式ホームページ再開のお知らせ</description>
     </item>
     <item>
       <title>【イルネ】大会出場のお知らせ！</title>
@@ -195,13 +203,6 @@
       <guid>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e6%9c%ac-2/</guid>
       <pubDate>Wed, 30 Sep 2026 00:00:00 +0900</pubDate>
       <description>地域貢献2026.09.30【活動報告】チャレンジフットサル＿札幌市立本郷小学校</description>
-    </item>
-    <item>
-      <title>地域貢献2026.09.28【活動報告】チャレンジフットサル＿札幌市立福住小学校</title>
-      <link>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e7%a6%8f/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e7%a6%8f/</guid>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 +0900</pubDate>
-      <description>地域貢献2026.09.28【活動報告】チャレンジフットサル＿札幌市立福住小学校</description>
     </item>
   </channel>
 </rss>
