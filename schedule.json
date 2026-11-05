@@ -16,7 +16,7 @@
   {"round": 15, "date": "2026-10-10", "time": "14:00", "venue": "小田原アリーナ", "opponent": "湘南ベルマーレ", "home": false},
   {"round": 16, "date": "2026-10-25", "time": "13:00", "venue": "北海きたえーる", "opponent": "バルドラール浦安", "home": true},
   {"round": 17, "date": "2026-11-01", "time": "13:00", "venue": "名古屋市千種スポーツセンター", "opponent": "名古屋オーシャンズ", "home": false},
-  {"round": 18, "date": null, "time": null, "venue": null, "opponent": "しながわシティ", "home": false},
+  {"round": 18, "date": "2026-11-17", "time": null, "venue": null, "opponent": "しながわシティ", "home": false},
   {"round": 19, "date": "2026-11-21", "time": "14:00", "venue": "町田市立総合体育館", "opponent": "ペスカドーラ町田", "home": false},
   {"round": 20, "date": "2026-11-29", "time": "13:00", "venue": "北ガスアリーナ札幌46", "opponent": "立川アスレティックFC", "home": true},
   {"round": 21, "date": "2026-12-13", "time": "13:00", "venue": "北ガスアリーナ札幌46", "opponent": "ボアルース長野", "home": true},
