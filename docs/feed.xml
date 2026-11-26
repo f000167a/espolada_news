@@ -5,7 +5,7 @@
     <link>https://espolada.com/news/</link>
     <description>エスポラーダ北海道 公式サイトの最新ニュース</description>
     <language>ja</language>
-    <lastBuildDate>Thu, 26 Nov 2026 04:44:56 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 14:43:42 +0000</lastBuildDate>
     <atom:link rel="self" type="application/rss+xml"/>
     <item>
       <title>【トップチーム】メットライフ生命Ｆリーグ2026-27レギュラーシーズン日程決定！</title>
@@ -46,6 +46,13 @@
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
       <category>お知らせ</category>
       <description>【エスポラーダ北海道】山田優介選手復帰のお知らせ！</description>
+    </item>
+    <item>
+      <title>地域貢献2026.11.26【開催報告】メットライフ生命カップ U-10フットサル大会</title>
+      <link>https://espolada.com/news/%e3%80%90%e9%96%8b%e5%82%ac%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e3%82%ab%e3%83%83%e3%83%97-u-10%e3%83%95%e3%83%83%e3%83%88%e3%82%b5/</link>
+      <guid>https://espolada.com/news/%e3%80%90%e9%96%8b%e5%82%ac%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%a1%e3%83%83%e3%83%88%e3%83%a9%e3%82%a4%e3%83%95%e7%94%9f%e5%91%bd%e3%82%ab%e3%83%83%e3%83%97-u-10%e3%83%95%e3%83%83%e3%83%88%e3%82%b5/</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0900</pubDate>
+      <description>地域貢献2026.11.26【開催報告】メットライフ生命カップ U-10フットサル大会</description>
     </item>
     <item>
       <title>【11月29日（日）HG】会場付近パーキングについてのお知らせ</title>
@@ -198,13 +205,6 @@
       <pubDate>Sat, 31 Oct 2026 00:00:00 +0900</pubDate>
       <category>サテライト</category>
       <description>【U18】第13回 会長杯U18フットサルリーグ2026 第7節　試合結果！</description>
-    </item>
-    <item>
-      <title>地域貢献2026.10.30【活動報告】チャレンジフットサル＿札幌市立厚別西小学校</title>
-      <link>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e5%8e%9a/</link>
-      <guid>https://espolada.com/news/%e3%80%90%e6%b4%bb%e5%8b%95%e5%a0%b1%e5%91%8a%e3%80%91%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%95%e3%83%83%e3%83%88%e3%82%b5%e3%83%ab%ef%bc%bf%e6%9c%ad%e5%b9%8c%e5%b8%82%e7%ab%8b%e5%8e%9a/</guid>
-      <pubDate>Fri, 30 Oct 2026 00:00:00 +0900</pubDate>
-      <description>地域貢献2026.10.30【活動報告】チャレンジフットサル＿札幌市立厚別西小学校</description>
     </item>
   </channel>
 </rss>
